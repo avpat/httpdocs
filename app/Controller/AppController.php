@@ -21,7 +21,8 @@
  */
 
 App::uses('Controller', 'Controller');
-
+//CakePlugin::load('Uploader');
+//App::import('Vendor', 'Uploader.Uploader');
 /**
  * Application Controller
  *
@@ -32,4 +33,52 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	// public $components = array(
+	// 	'Session',
+	// 	'Email',
+	// 	'Auth' => array(
+	// 		//'loginRedirect' => array('controller' => 'workshops', 'action' => 'index'),
+	// 		'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+	// 		'authorize' => array('Controller'),
+	// 		'authenticate' => array(
+	// 			'Form' => array(
+	// 				'scope' => array('User.active' => 1)
+	// 			)
+	// 		),
+	// 		'authError' => 'You are not authorised to access that location.'
+	// 	)
+	// );
+	
+	public function beforeFilter() {
+
+		// if($this->action == 'admin_login') {
+		// 	$this->redirect('/login');
+		// }
+		// $this->Auth->allow('logout');
+		
+		// if(isset($this->request->params['admin'])) {
+		// 	$this->layout = 'admin';
+		// }
+	}
+
+	public function isAuthorized($user) {
+		//$this->Auth->autoRedirect = false; 
+		//pr($user);die;
+		if(isset($user['role'])) {
+			//if(!empty($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin' && $user['role'] == 'admin') {
+			if($user['role'] == 'admin') {
+				//$this->Auth->loginRedirect = array('admin' => true, 'controller' => 'users', 'action' => 'index');
+				return true;
+			}
+			elseif(!isset($this->request->params['prefix']) && $user['role'] == 'user') {
+				//pr("I am here");
+				//$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'splash');
+				return true;
+			}
+		}
+		$this->redirect(array('admin' => false, 'controller' => 'cars', 'action' => 'index'));
+		return false;
+	}
+    
 }
