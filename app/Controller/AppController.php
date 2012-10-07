@@ -34,36 +34,36 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-	// public $components = array(
-	// 	'Session',
-	// 	'Email',
-	// 	'Auth' => array(
-	// 		//'loginRedirect' => array('controller' => 'workshops', 'action' => 'index'),
-	// 		'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-	// 		'authorize' => array('Controller'),
-	// 		'authenticate' => array(
-	// 			'Form' => array(
-	// 				'scope' => array('User.active' => 1)
-	// 			)
-	// 		),
-	// 		'authError' => 'You are not authorised to access that location.'
-	// 	)
-	// );
+	public $components = array(
+		'Session',
+		//'Email',
+		'Auth' => array(
+			'loginRedirect' => array('controller' => 'cars', 'action' => 'index'),
+		//	'logoutRedirect' => array('controller' => 'users', 'action' => 'display', 'login'),
+			'authorize' => array('Controller'),
+			'authenticate' => array(
+				'Form' => array(
+					'scope' => array('User.active' => 1)
+				)
+			),
+			'authError' => 'You are not authorised to access that location.'
+		)
+	);
 	
 	public function beforeFilter() {
 
-		// if($this->action == 'admin_login') {
-		// 	$this->redirect('/login');
-		// }
-		// $this->Auth->allow('logout');
+		 if($this->action == 'admin_login') {
+			$this->redirect('/login');
+		}
+		$this->Auth->allow('logout');
 		
-		// if(isset($this->request->params['admin'])) {
-		// 	$this->layout = 'admin';
-		// }
+		if(isset($this->request->params['admin'])) {
+			$this->layout = 'admin';
+		}
 	}
 
 	public function isAuthorized($user) {
-		//$this->Auth->autoRedirect = false; 
+		$this->Auth->autoRedirect = false; 
 		//pr($user);die;
 		if(isset($user['role'])) {
 			//if(!empty($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin' && $user['role'] == 'admin') {

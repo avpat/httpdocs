@@ -6,7 +6,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('role', array(
-			'options' => array('admin' => 'Admin', 'user' => 'User')
+			'options' => array('admin' => 'Admin','manager' => 'Manager', 'user' => 'User', 'guest' => 'Guest')
 		));
 		echo $this->Form->input('active');
 	?>

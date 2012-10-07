@@ -50,11 +50,11 @@ $cakeDescription = __d('cake_dev', 'House Of Innovative Development');
 		<div class="container">
 			<ul>
 				<li><a href="/cars">Cars</a></li>
-				<li><a href="/sell">Sell</a></li>
-				<li><a href="/advertise">Atvertise</a></li>				
+				<li><a href="/sell">Sell</a></li>			
 				<li><a href="/buyingtips">Buying Tips</a></li>
 				<li><a href="/aboutus">About Us</a></li>
-				<li><a href="/contactus">Contact Us</a></li>								
+				<li><a href="/contactus">Contacts Us</a></li>
+				<li><a href="/users/logout">Log out</a></li>													
 			</ul>
 
 		</div>
@@ -68,8 +68,11 @@ $cakeDescription = __d('cake_dev', 'House Of Innovative Development');
 	</div>
 	<?php endif; ?>
 	<div id="content">
+		<div class="sidebar">
+			<?php echo $this->fetch('sidebar'); ?>
+		</div>
 		<div class="container">
-			<?php //echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 	</div>

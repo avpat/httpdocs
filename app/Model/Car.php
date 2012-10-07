@@ -4,6 +4,26 @@
 class Car extends AppModel {
 
 	public $name = 'Car';
+
+// var $name = 'User';
+// var $hasOne = 'Manufacture';
+// var $hasMany = array(
+// 'Recipe' => array(
+// 'className' => 'Recipe',
+// 'conditions' => array('Recipe.approved' => '1'),
+// 'order' => 'Recipe.created DESC'
+// )
+// );
+// var $name = 'User';
+// var $hasOne = 'Profile';
+// var $hasMany = array(
+// 'Recipe' => array(
+// 'className' => 'Recipe',
+// 'conditions' => array('Recipe.approved' => '1'),
+// 'order' => 'Recipe.created DESC'
+// )
+// );
+
 	
 
 	
@@ -53,5 +73,7 @@ class Car extends AppModel {
 	);
 
 }
+
+
 
 ?>

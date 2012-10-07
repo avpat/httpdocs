@@ -11,7 +11,7 @@
 		echo $this->Form->input('age');		
 		echo $this->Form->input('color');
 		echo $this->Form->input('bodytype');
-		echo $this->Form->input('transmission');		
+		echo $this->Form->input('transmission');	
 		echo $this->Form->input('enginesize');
 		echo $this->Form->input('noofdoors');
 		echo $this->Form->input('sellerid');

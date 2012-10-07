@@ -1,6 +1,8 @@
 <?php $this->layout = 'login'; ?>
 <div class="users login">
-
+	<h2>
+		<strong>Welcome to Car Bazaar</strong><br />
+	</h2>
 	
 	<?php echo $this->Session->flash('auth'); ?>
 	<?php echo $this->Form->create('User'); ?>
@@ -15,3 +17,14 @@
 	<?php echo $this->Form->end(); ?>
 	<p><a href="/forgot-password" class="forgot-password">Forgotten password?</a></p>
 </div>
+
+<!--
+<script type="text/javascript">
+$(document).ready(function() {
+	if ($.browser.webkit) {
+	    $('#UserPassword').attr('autocomplete','off');
+	}
+});
+
+</script>
+-->
